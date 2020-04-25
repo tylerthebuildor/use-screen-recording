@@ -1,0 +1,32 @@
+.root {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.menu {
+  background: white;
+  margin: 0px auto;
+  padding: 0px 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.video {
+  width: 300px;
+  margin-top: 10px;
+}
+
+button {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  padding: 10px;
+  width: 200px;
+  outline: none;
+}
+
+button:active {
+  box-shadow: none;
+}
