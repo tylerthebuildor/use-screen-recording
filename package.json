@@ -1,7 +1,7 @@
 {
   "name": "use-screen-recording",
   "version": "1.0.0",
-  "description": "Easily create screen recordings using a React Hook.",
+  "description": "Easily create screen recordings using React Hooks.",
   "author": "tylerbuchea",
   "license": "MIT",
   "repository": "tylerbuchea/use-screen-recording",
