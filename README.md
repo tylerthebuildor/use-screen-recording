@@ -13,15 +13,23 @@ npm install --save use-screen-recording
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from "react";
+import useScreenRecording from "use-screen-recording";
 
-import { useMyHook } from 'use-screen-recording'
+export default function App() {
+  const { isRecording, recording, toggleRecording } = useScreenRecording();
 
-const Example = () => {
-  const example = useMyHook()
   return (
-    <div>{example}</div>
-  )
+    <div>
+      <button onClick={toggleRecording}>
+        {isRecording ? "Stop" : "Start Recording"}
+      </button>
+
+      {!!recording && (
+        <video autoPlay src={recording && URL.createObjectURL(recording)} />
+      )}
+    </div>
+  );
 }
 ```
 

@@ -14,10 +14,11 @@ export default function useScreenRecording({
   const [captureStream, setCaptureStream] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [mediaRecorder, setMediaRecorder] = React.useState(null);
-  const [recording, setRecording] = React.useState(false);
+  const [isRecording, setIsRecording] = React.useState(false);
+  const [recording, setRecording] = React.useState(null);
   const stopRecording = () => {
     try {
-      setRecording(false);
+      setIsRecording(false);
       mediaRecorder.stop();
       captureStream.getTracks().forEach((track) => track.stop());
     } catch (e) {
@@ -30,28 +31,32 @@ export default function useScreenRecording({
       const stream = await navigator.mediaDevices.getDisplayMedia(
         displayMediaOptions
       );
-      setRecording(true);
+      setIsRecording(true);
       stream.getTracks().forEach((track) => {
         track.onended = stopRecording;
       });
       setCaptureStream(stream);
       const recorder = new MediaRecorder(stream);
-      recorder.ondataavailable = onEnd;
+      recorder.ondataavailable = (event) => {
+        onEnd(event);
+        setRecording(event.data);
+      };
       recorder.start();
       setMediaRecorder(recorder);
       onStart({ stream, recorder });
     } catch (e) {
-      setRecording(false);
+      setIsRecording(false);
       onError(e);
       setError(e);
     }
   };
   const toggleRecording = () =>
-    recording ? stopRecording() : startRecording();
+    isRecording ? stopRecording() : startRecording();
 
   return {
     captureStream,
     error,
+    isRecording,
     mediaRecorder,
     recording,
     startRecording,

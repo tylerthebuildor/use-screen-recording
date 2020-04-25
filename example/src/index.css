@@ -1,21 +1,14 @@
 .root {
   font-family: sans-serif;
+  padding: 0px 10px;
   text-align: center;
 }
 
-.menu {
-  background: white;
-  margin: 0px auto;
-  padding: 0px 10px;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-}
-
 .video {
-  width: 300px;
-  margin-top: 10px;
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
 }
 
 button {
