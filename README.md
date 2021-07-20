@@ -33,6 +33,10 @@ export default function App() {
 }
 ```
 
+## Contribute
+
+If you'd like to contribute you can start hacking on the library right away using the [CodeSandbox Project](https://codesandbox.io/s/use-screen-recording-wi4rx?file=/pages/index.js).
+
 ## License
 
 MIT © [tylerbuchea](https://github.com/tylerbuchea)
